@@ -16,13 +16,14 @@
     }
 
     .container-principal {
-        max-width: 900px; 
+        max-width: 1000px; 
         margin: 0 auto;   
         background: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         overflow: hidden; 
-        padding: 0; 
+        padding: 40px 50px;
+        box-sizing: border-box;
     }
 
     .banner {
@@ -46,9 +47,13 @@
     }
 
     h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: 42px;
+        margin-bottom: 20px;
     }
+
+    .description {
+        margin-bottom: 40px;
+    } 
 
     h2 {
         font-size: 20px;
@@ -56,6 +61,10 @@
         margin-bottom: 15px;
         border-bottom: 2px solid #1a73e8;
         padding-bottom: 5px;
+    }
+
+    #data_nascimento {
+        font-size: 14px;
     }
 
     p.description {
@@ -110,19 +119,38 @@
         cursor: pointer;
     }
 
-    .buttons {
+    .info-obrigatorio {
+        margin-right: auto;
+        font-size: 13px;
+        color: #555;
         display: flex;
-        justify-style: space-between;
         align-items: center;
-        margin-top: 30px;
+        line-height: 40px;
+    }
+
+    .asterisco {
+        color: #d93025;
+        font-weight: bold;
+        margin-right: 4px;
     }
 
     button {
-        padding: 12px 24px;
+        min-width: 100px;
+        height: 40px;
+        padding: 0 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        font-weight: bold;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 12px;
+        margin-top: 30px;
     }
 
     .btn-submit {
@@ -131,8 +159,74 @@
     }
 
     .btn-reset {
-        background-color: transparent;
-        color: #555;
+        background-color: #ffffff;
+        color: #3c4043;
+        border: 1px solid #dadce0;
+    }
+
+    /* Estilos do Alerta Personalizado Centralizado */
+    #custom-alert-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #custom-alert-box {
+        background: #ffffff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        animation: scaleIn 0.2s ease-in-out;
+    }
+
+    @keyframes scaleIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Estilo para a Logo dentro do Alerta */
+    .alert-logo {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+
+    #custom-alert-box h3 {
+        margin-top: 0;
+        color: #1a73e8;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #custom-alert-box p {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    #custom-alert-box button {
+        background-color: #1a73e8;
+        color: white;
+        font-size: 16px;
+        padding: 10px 30px;
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    #custom-alert-box button:hover {
+        background-color: #1557b0;
     }
 </style>
 </head>
@@ -142,7 +236,6 @@
 	<div class="banner">
     	    <img src="https://raw.githubusercontent.com/dhsmental/DadosCursistas/main/banner.jpeg" alt="Banner do Curso">
 	</div>
-
 
 <div class="form-container">
 
@@ -156,13 +249,13 @@
 
     <!-- E-mail -->
     <div class="form-group">
-      <label for="email">E-mail <span class="required">*</span></label>
+      <label for="email">E-mail: <span class="required">*</span></label>
       <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
     </div>
 
     <!-- Nome Completo -->
     <div class="form-group">
-      <label for="nome">Nome Completo <span class="required">*</span></label>
+      <label for="nome">Nome Completo: <span class="required">*</span></label>
       <input type="text" id="nome" name="nome" placeholder="Sua resposta" required>
     </div>
 
@@ -175,21 +268,21 @@
 
     <!-- Data de Nascimento -->
     <div class="form-group">
-      <label for="data_nascimento">Data de Nascimento <span class="required">*</span></label>
+      <label for="data_nascimento">Data de Nascimento: <span class="required">*</span></label>
       <input type="date" id="data_nascimento" name="data_nascimento" required>
     </div>
 
     <!-- Gênero -->
     <div class="form-group radio-group">
-      <label>Gênero <span class="required">*</span></label>
+      <label>Gênero: <span class="required">*</span></label>
       <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
       <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
     </div>
 
     <!-- CPF -->
     <div class="form-group">
-      <label for="cpf">CPF (apenas números) <span class="required">*</span></label>
-      <input type="text" id="cpf" name="cpf" pattern="\d*" maxlength="11" placeholder="Sua resposta" required>
+      <label for="cpf">CPF: (apenas números) <span class="required">*</span></label>
+      <input type="tel" id="cpf" name="cpf" pattern="\d*" maxlength="11" placeholder="Sua resposta" required>
     </div>
 
     <!-- Telefone -->
@@ -200,10 +293,9 @@
 
     <!-- Escolaridade -->
     <div class="form-group">
-      <label for="escolaridade">Escolaridade <span class="required">*</span></label>
+      <label for="escolaridade">Escolaridade: <span class="required">*</span></label>
       <select id="escolaridade" name="escolaridade" required>
         <option value="" disabled selected>Selecione uma opção</option>
-        
         <option value="1">1 - Médio Incompleto</option>
         <option value="2">2 - Médio Completo</option>
         <option value="3">3 - Superior Incompleto</option>
@@ -213,14 +305,14 @@
         <option value="8">8 - Especialização</option>
         <option value="9">9 - Mestrado</option>
         <option value="10">10 - Doutorado</option>
-	<option value="11">11 - Fundamental Incompleto</option>
+        <option value="11">11 - Fundamental Incompleto</option>
         <option value="12">12 - Fundamental Completo</option>
       </select>
     </div>
 
     <!-- Raça/Etnia -->
     <div class="form-group">
-      <label for="raca">Raça/Etnia <span class="required">*</span></label>
+      <label for="raca">Raça/Etnia: <span class="required">*</span></label>
       <select id="raca" name="raca" required>
         <option value="" disabled selected>Selecione uma opção</option>
         <option value="1">1 - Branca</option>
@@ -234,7 +326,7 @@
 
     <!-- Deficiência -->
     <div class="form-group">
-      <label for="deficiencia">Deficiência <span class="required">*</span></label>
+      <label for="deficiencia">Deficiência: <span class="required">*</span></label>
       <select id="deficiencia" name="deficiencia" required>
         <option value="" disabled selected>Selecione uma opção</option>
         <option value="1">1 - Cegueira</option>
@@ -246,7 +338,7 @@
         <option value="7">7 - Deficiência auditiva</option>
         <option value="8">8 - Deficiência múltipla</option>
         <option value="9">9 - Não declarado</option>
-	<option value="10">10 - Não possui deficiência</option>
+        <option value="10">10 - Não possui deficiência</option>
       </select>
     </div>
 
@@ -255,7 +347,7 @@
 
     <!-- Função que exerce -->
     <div class="form-group">
-      <label for="funcao">Função que exerce <span class="required">*</span></label>
+      <label for="funcao">Função que exerce: <span class="required">*</span></label>
       <select id="funcao" name="funcao" required>
         <option value="" disabled selected>Selecione uma opção</option>
         <option value="1">1 - Auxiliar de Educação Infantil</option>
@@ -280,7 +372,7 @@
 
     <!-- Rede de Ensino onde Atua -->
     <div class="form-group radio-group">
-      <label>Rede de Ensino onde Atua <span class="required">*</span></label>
+      <label>Rede de Ensino onde Atua: <span class="required">*</span></label>
       <label><input type="radio" name="rede_ensino" value="Municipal" required> Municipal</label>
       <label><input type="radio" name="rede_ensino" value="Estadual"> Estadual</label>
       <label><input type="radio" name="rede_ensino" value="Federal"> Federal</label>
@@ -289,7 +381,7 @@
 
     <!-- Vínculo com a Rede de Ensino -->
     <div class="form-group radio-group">
-      <label>Vínculo com a Rede de Ensino <span class="required">*</span></label>
+      <label>Vínculo com a Rede de Ensino: <span class="required">*</span></label>
       <label><input type="radio" name="vinculo" value="1" required> 1 - Concursado/efetivo</label>
       <label><input type="radio" name="vinculo" value="2"> 2 - Temporário</label>
       <label><input type="radio" name="vinculo" value="3"> 3 - Terceirizado</label>
@@ -298,12 +390,28 @@
       <label><input type="radio" name="vinculo" value="100"> 100 - Outros</label>
     </div>
 
-    <!-- 3. LOCALIZAÇÃO E ESCOLA -->
-    <h2>Local de Atuação / Escola</h2>
 
+    <!-- Subtítulo Adicionado -->
+    <h2>Informações do Cursista</h2>
+
+    <!-- Perfil do Cursista estruturado com a mesma classe e alinhamento -->
+    <div class="form-group">
+      <label>Perfil do Cursista: <span class="required">*</span></label>
+      <div style="display: flex; gap: 20px; padding: 10px 0;">
+        <label style="font-weight: normal; margin-bottom: 0; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+            <input type="radio" name="tipo_cursista" value="Estudante" required style="width: auto; margin: 0;"> Estudante
+        </label>
+        <label style="font-weight: normal; margin-bottom: 0; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+            <input type="radio" name="tipo_cursista" value="Profissional da Educação" style="width: auto; margin: 0;"> Profissional da Educação
+        </label>
+      </div>
+    </div
+
+    <!-- 3. LOCALIZAÇÃO E ESCOLA -->
+    
     <!-- Estado (UF) -->
     <div class="form-group">
-      <label for="uf">Estado onde atua/trabalha <span class="required">*</span></label>
+      <label for="uf">Estado onde estuda / trabalha: <span class="required">*</span></label>
       <select id="uf" name="uf" required>
         <option value="" disabled selected>Selecione um estado</option>
         <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
@@ -320,7 +428,7 @@
 
     <!-- Município -->
     <div class="form-group">
-      <label for="municipio">Município em que trabalha/atua <span class="required">*</span></label>
+      <label for="municipio">Município em que estuda / trabalha: <span class="required">*</span></label>
       <select id="municipio" name="municipio" disabled required>
         <option value="">Selecione primeiro o estado</option>
       </select>
@@ -328,7 +436,7 @@
 
     <!-- Escola -->
     <div class="form-group">
-      <label for="escola">Informe o nome da escola onde atua <span class="required">*</span></label>
+      <label for="escola">Informe o nome da escola onde atua: <span class="required">*</span></label>
       <select id="escola" name="escola" disabled required>
         <option value="">Selecione primeiro o município</option>
       </select>
@@ -336,7 +444,7 @@
 
     <!-- Código INEP -->
     <div class="form-group">
-      <label for="inep">Código INEP da Escola <span class="required">*</span></label>
+      <label for="inep">Código INEP da Escola: <span class="required">*</span></label>
       <input type="text" id="inep" name="inep" readonly required placeholder="Preenchido automaticamente">
     </div>
 
@@ -344,12 +452,31 @@
     <input type="hidden" id="codigo_municipio" name="codigo_municipio">
 
     <div class="buttons">
-      <button type="reset" class="btn-reset">Limpar formulário</button>
-      <button type="submit" class="btn-submit">Enviar</button>
+      <span class="info-obrigatorio">
+          <span class="asterisco">*</span> Campos obrigatórios
+      </span>
+
+      <button type="reset" class="btn-reset">
+          Limpar formulário
+      </button>
+
+      <button type="submit" class="btn-submit">
+          Enviar
+      </button>
     </div>
 
   </form>
 </div>
+</div>
+
+<!-- HTML do Alerta Personalizado com a Logo -->
+<div id="custom-alert-overlay">
+    <div id="custom-alert-box">
+        <img src="https://raw.githubusercontent.com/dhsmental/DadosCursistas/main/logo.jpeg" alt="Logo" class="alert-logo">
+        <h3>Sucesso!</h3>
+        <p id="custom-alert-message">Cadastro realizado com sucesso!</p>
+        <button onclick="fecharAlertaCustomizado()">OK</button>
+    </div>
 </div>
 
 <!-- LÓGICA JAVASCRIPT -->
@@ -392,6 +519,15 @@ const CSV_POR_UF = {
   "TO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=248095253&single=true&output=csv"
 };
 
+function mostrarAlertaCustomizado(mensagem) {
+    document.getElementById("custom-alert-message").textContent = mensagem;
+    document.getElementById("custom-alert-overlay").style.display = "flex";
+}
+
+function fecharAlertaCustomizado() {
+    document.getElementById("custom-alert-overlay").style.display = "none";
+}
+
 // 1. ALTERAÇÃO DE ESTADO (UF)
 selectUF.addEventListener("change", async function () {
     const uf = this.value;
@@ -404,7 +540,6 @@ selectUF.addEventListener("change", async function () {
     campoInep.value = "";
     campoInep.readOnly = true;
 
-    // Carrega o CSV do estado correspondente
     const csvPromise = new Promise((resolve) => {
         const urlEstado = CSV_POR_UF[uf];
         if (!urlEstado) {
@@ -425,7 +560,6 @@ selectUF.addEventListener("change", async function () {
         });
     });
 
-    // Carrega os municípios direto da API do IBGE
     const ibgePromise = fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`)
         .then(res => {
             if (!res.ok) throw new Error("Erro na resposta do IBGE");
@@ -507,52 +641,30 @@ selectMunicipio.addEventListener("change", function() {
     });
 
     escolasFiltradas.forEach(item => {
+        const option = document.createElement("option");
+        const nomeEscola = item["escola_onde_atua"] || item["Escola"] || "";
+        const codigoInep = item["codigo_inep"] || item["Código INEP"] || item["Codigo INEP"] || "";
 
-    const option = document.createElement("option");
+        option.textContent = nomeEscola;
+        option.value = nomeEscola;
+        option.dataset.inep = codigoInep;
 
-    const nomeEscola =
-        item["escola_onde_atua"] ||
-        item["Escola"] ||
-        "";
-
-    const codigoInep =
-        item["codigo_inep"] ||
-        item["Código INEP"] ||
-        item["Codigo INEP"] ||
-        "";
-
-    option.textContent = nomeEscola;
-    option.value = nomeEscola;
-    option.dataset.inep = codigoInep;
-
-    selectEscola.appendChild(option);
-
-});
-
-    const optionOutra = document.createElement("option");
-    optionOutra.value = "OUTRA";
-    optionOutra.textContent = "-- MINHA ESCOLA NÃO ESTÁ NA LISTA --";
-    selectEscola.appendChild(optionOutra);
-
+        selectEscola.appendChild(option);
+    });
+    
     selectEscola.disabled = false;
 });
 
 // 3. SELEÇÃO DA ESCOLA -> Preenche o INEP automaticamente
 selectEscola.addEventListener("change", function() {
-
     if (this.value === "OUTRA") {
         liberarDigitacaoManual();
         return;
     }
 
-    const opcaoSelecionada =
-        this.options[this.selectedIndex];
-
-    campoInep.value =
-        opcaoSelecionada.dataset.inep || "";
-
+    const opcaoSelecionada = this.options[this.selectedIndex];
+    campoInep.value = opcaoSelecionada.dataset.inep || "";
     campoInep.readOnly = true;
-
 });
 
 function liberarDigitacaoManual() {
@@ -562,7 +674,6 @@ function liberarDigitacaoManual() {
     campoInep.focus();
 }
 
-// 4. ENVIO DO FORMULÁRIO
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -582,13 +693,34 @@ form.addEventListener("submit", function(event) {
 
     const formData = new FormData(form);
 
+    // TRATAMENTO DO CPF: Pega o valor como string literal e garante os zeros à esquerda se precisar
+    let cpfInput = form.querySelector("#cpf");
+    if (cpfInput) {
+        let cpfValor = cpfInput.value.replace(/\D/g, "");
+        if (cpfValor.length > 0) {
+            // Se tiver menos de 11 dígitos, completa com zeros à esquerda
+            cpfValor = cpfValor.padStart(11, "0");
+            // Adiciona a aspa simples (') para travar como texto puro no Sheets
+            formData.set("cpf", "'" + cpfValor);
+        }
+    }
+
+    // TRATAMENTO DO INEP: Garante que também vá como texto puro
+    let inepInput = form.querySelector("#inep");
+    if (inepInput) {
+        let inepValor = inepInput.value.replace(/\D/g, "");
+        if (inepValor.length > 0) {
+            formData.set("inep", "'" + inepValor);
+        }
+    }
+
     fetch(urlGoogleScript, {
         method: "POST",
         body: formData,
         mode: "no-cors"
     })
     .then(() => {
-        alert("Cadastro realizado com sucesso!");
+        mostrarAlertaCustomizado("Cadastro realizado com sucesso!");
         form.reset();
         selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
         selectMunicipio.disabled = true;
@@ -597,12 +729,44 @@ form.addEventListener("submit", function(event) {
     })
     .catch(error => {
         console.error("Erro:", error);
-        alert("Erro na conexão ao enviar os dados.");
+        mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.");
     })
     .finally(() => {
         if (btnSubmit) {
             btnSubmit.textContent = textoOriginal;
             btnSubmit.disabled = false;
+        }
+    });
+});
+// Lógica para alternar visibilidade com base no Perfil do Cursista
+const radiosPerfil = document.querySelectorAll('input[name="tipo_cursista"]');
+const grupoLocalizacao = [
+    document.querySelector('label[for="uf"]').parentElement,
+    selectMunicipio.parentElement,
+    selectEscola.parentElement,
+    campoInep.parentElement
+];
+
+radiosPerfil.forEach(radio => {
+    radio.addEventListener("change", function() {
+        const isEstudante = this.value === "Estudante";
+        
+        // Se for Estudante, oculta apenas Escola e INEP
+        const grupoEscola = selectEscola.parentElement;
+        const grupoInep = campoInep.parentElement;
+
+        if (isEstudante) {
+            grupoEscola.style.display = "none";
+            grupoInep.style.display = "none";
+            // Remove o 'required' para não bloquear o envio
+            selectEscola.removeAttribute("required");
+            campoInep.removeAttribute("required");
+        } else {
+            grupoEscola.style.display = "block";
+            grupoInep.style.display = "block";
+            // Retorna o 'required'
+            selectEscola.setAttribute("required", "required");
+            campoInep.setAttribute("required", "required");
         }
     });
 });
