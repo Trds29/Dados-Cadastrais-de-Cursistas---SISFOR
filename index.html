@@ -8,101 +8,144 @@
   <!-- Importação da Biblioteca PapaParse -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-  <style>
+ <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        padding: 20px;
     }
-    .form-container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    .container-principal {
+        max-width: 900px; 
+        margin: 0 auto;   
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden; 
+        padding: 0; 
     }
+
+    .banner {
+        margin: 0;
+        padding: 0;
+        line-height: 0; 
+    }
+
+    .banner img {
+        width: 100%;      
+        height: auto;     
+        display: block;
+        border-top-left-radius: 8px;  
+        border-top-right-radius: 8px;
+    }
+
+    .formulario {
+        width: 100%;      
+        padding: 30px;
+        box-sizing: border-box; 
+    }
+
     h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
+
     h2 {
-      font-size: 20px;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #1a73e8;
-      padding-bottom: 5px;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #1a73e8;
+        padding-bottom: 5px;
     }
+
     p.description {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
     }
+
     .form-group {
-      margin-bottom: 20px;
+        margin-bottom: 20px;
     }
+
     label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
+
     .required {
-      color: red;
+        color: red;
     }
+
     .help-text {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 5px;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
     }
+
     input[type="text"],
     input[type="email"],
     input[type="date"],
     input[type="tel"],
     select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
     }
+
     input[readonly] {
-      background-color: #e9ecef;
-      cursor: not-allowed;
+        background-color: #e9ecef;
+        cursor: not-allowed;
     }
+
     .radio-group label {
-      font-weight: normal;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 5px;
-      cursor: pointer;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 5px;
+        cursor: pointer;
     }
+
     .buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 30px;
+        display: flex;
+        justify-style: space-between;
+        align-items: center;
+        margin-top: 30px;
     }
+
     button {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
     }
+
     .btn-submit {
-      background-color: #1a73e8;
-      color: white;
+        background-color: #1a73e8;
+        color: white;
     }
+
     .btn-reset {
-      background-color: transparent;
-      color: #555;
+        background-color: transparent;
+        color: #555;
     }
-  </style>
+</style>
 </head>
+
 <body>
+<div class="container-principal">
+	<div class="banner">
+    	    <img src="https://raw.githubusercontent.com/dhsmental/DadosCursistas/main/banner.jpeg" alt="Banner do Curso">
+	</div>
+
 
 <div class="form-container">
+
   <h1>Dados Cadastrais de Cursistas - SISFOR</h1>
   <p class="description">Formulário para coleta de dados de alunos inscritos no curso de Direitos Humanos e Saúde Mental - UNIPAMPA</p>
 
@@ -160,8 +203,7 @@
       <label for="escolaridade">Escolaridade <span class="required">*</span></label>
       <select id="escolaridade" name="escolaridade" required>
         <option value="" disabled selected>Selecione uma opção</option>
-        <option value="11">11 - Fundamental Incompleto</option>
-        <option value="12">12 - Fundamental Completo</option>
+        
         <option value="1">1 - Médio Incompleto</option>
         <option value="2">2 - Médio Completo</option>
         <option value="3">3 - Superior Incompleto</option>
@@ -171,6 +213,8 @@
         <option value="8">8 - Especialização</option>
         <option value="9">9 - Mestrado</option>
         <option value="10">10 - Doutorado</option>
+	<option value="11">11 - Fundamental Incompleto</option>
+        <option value="12">12 - Fundamental Completo</option>
       </select>
     </div>
 
@@ -193,7 +237,6 @@
       <label for="deficiencia">Deficiência <span class="required">*</span></label>
       <select id="deficiencia" name="deficiencia" required>
         <option value="" disabled selected>Selecione uma opção</option>
-        <option value="10">10 - Não possui deficiência</option>
         <option value="1">1 - Cegueira</option>
         <option value="2">2 - Surdocegueira</option>
         <option value="3">3 - Baixa visão</option>
@@ -203,6 +246,7 @@
         <option value="7">7 - Deficiência auditiva</option>
         <option value="8">8 - Deficiência múltipla</option>
         <option value="9">9 - Não declarado</option>
+	<option value="10">10 - Não possui deficiência</option>
       </select>
     </div>
 
@@ -254,7 +298,7 @@
       <label><input type="radio" name="vinculo" value="100"> 100 - Outros</label>
     </div>
 
-    <!-- 3. LOCALIZAÇÃO E ESCOLA (CAMPOS ADICIONADOS PARA FUNCIONAR O SCRIPT) -->
+    <!-- 3. LOCALIZAÇÃO E ESCOLA -->
     <h2>Local de Atuação / Escola</h2>
 
     <!-- Estado (UF) -->
@@ -306,6 +350,7 @@
 
   </form>
 </div>
+</div>
 
 <!-- LÓGICA JAVASCRIPT -->
 <script>
@@ -315,49 +360,51 @@ const selectUF = document.getElementById("uf");
 const selectMunicipio = document.getElementById("municipio");
 const selectEscola = document.getElementById("escola");
 const campoInep = document.getElementById("inep");
+const form = document.getElementById("formCursistas");
 
 const CSV_POR_UF = {
-  "AC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1927024187&single=true&output=csv",
-  "AL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=491938936&single=true&output=csv",
-  "AM": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1994398759&single=true&output=csv",
-  "AP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=288738836&single=true&output=csv",
-  "BA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1950215843&single=true&output=csv",
-  "CE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1449126860&single=true&output=csv",
-  "DF": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1822256875&single=true&output=csv",
-  "ES": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=2003443812&single=true&output=csv",
-  "GO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=801472210&single=true&output=csv",
-  "MA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=2147344206&single=true&output=csv",
-  "MG": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1377464040&single=true&output=csv",
-  "MS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=2081141960&single=true&output=csv",
-  "MT": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1528051816&single=true&output=csv",
-  "PA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=711334859&single=true&output=csv",
-  "PB": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1625478735&single=true&output=csv",
-  "PE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1267274601&single=true&output=csv",
-  "PI": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1218029717&single=true&output=csv",
-  "PR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=174423226&single=true&output=csv",
-  "RJ": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1968121039&single=true&output=csv",
-  "RN": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=678187664&single=true&output=csv",
-  "RO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1803069774&single=true&output=csv",
-  "RR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=218576894&single=true&output=csv",
-  "RS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=751828213&single=true&output=csv",
-  "SC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=913153601&single=true&output=csv",
-  "SE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=862706361&single=true&output=csv",
-  "SP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=965716085&single=true&output=csv",
-  "TO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI8AsU5of7OP0PlizbULGJ97-HzMIzJjGjHoeiMCiru_c1l7iLBONGb3G_rxbKSUr0xboJ4pRx-z4o/pub?gid=1277778336&single=true&output=csv"
+  "AC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=919089555&single=true&output=csv",
+  "AL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1492906837&single=true&output=csv",
+  "AM": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=2065729688&single=true&output=csv",
+  "AP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=413582905&single=true&output=csv",
+  "BA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=135079623&single=true&output=csv",
+  "CE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1628342585&single=true&output=csv",
+  "DF": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=583859084&single=true&output=csv",
+  "ES": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=86931561&single=true&output=csv",
+  "GO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=481751009&single=true&output=csv",
+  "MA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1611150924&single=true&output=csv",
+  "MG": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=671670202&single=true&output=csv",
+  "MS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1845070653&single=true&output=csv",
+  "MT": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=777560551&single=true&output=csv",
+  "PA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1379298506&single=true&output=csv",
+  "PB": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=950212066&single=true&output=csv",
+  "PE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1848741003&single=true&output=csv",
+  "PI": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=260195494&single=true&output=csv",
+  "PR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1944047795&single=true&output=csv",
+  "RJ": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=408078616&single=true&output=csv",
+  "RN": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=2061973743&single=true&output=csv",
+  "RO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=589419166&single=true&output=csv",
+  "RR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=437244425&single=true&output=csv",
+  "RS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1480601952&single=true&output=csv",
+  "SC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=433420489&single=true&output=csv",
+  "SE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1215037813&single=true&output=csv",
+  "SP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=618876789&single=true&output=csv",
+  "TO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=248095253&single=true&output=csv"
 };
 
 // 1. ALTERAÇÃO DE ESTADO (UF)
 selectUF.addEventListener("change", async function () {
     const uf = this.value;
+    if (!uf) return;
 
-    selectMunicipio.innerHTML = '<option value="">Baixando dados das escolas... Aguarde.</option>';
+    selectMunicipio.innerHTML = '<option value="">Carregando municípios e escolas...</option>';
     selectMunicipio.disabled = true;
     selectEscola.innerHTML = '<option value="">Selecione primeiro o município</option>';
     selectEscola.disabled = true;
     campoInep.value = "";
     campoInep.readOnly = true;
 
-    // A) Transforma o carregamento do PapaParse em uma Promise para esperar ele terminar
+    // Carrega o CSV do estado correspondente
     const csvPromise = new Promise((resolve) => {
         const urlEstado = CSV_POR_UF[uf];
         if (!urlEstado) {
@@ -372,40 +419,40 @@ selectUF.addEventListener("change", async function () {
                 resolve(resultado.data);
             },
             error: function(erro) {
-                console.error("Erro PapaParse:", erro);
+                console.error("Erro ao baixar CSV:", erro);
                 resolve([]);
             }
         });
     });
 
-    // B) Busca Municípios na API do IBGE
+    // Carrega os municípios direto da API do IBGE
     const ibgePromise = fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error("Erro na resposta do IBGE");
+            return res.json();
+        })
         .catch(erro => {
             console.error("Erro IBGE:", erro);
             return [];
         });
 
-    // Aguarda AMBAS as requisições (IBGE e Google Sheets) finalizarem
     const [dadosCsv, municipios] = await Promise.all([csvPromise, ibgePromise]);
     
     EscolasMuniCSV = dadosCsv;
-    console.log(`UF ${uf} - Escolas carregadas do CSV:`, EscolasMuniCSV.length);
 
-    // Preenche o Select de Municípios
     selectMunicipio.innerHTML = '<option value="">Selecione um município</option>';
     
-    if (municipios.length > 0) {
+    if (municipios && municipios.length > 0) {
         municipios.forEach(m => {
             const option = document.createElement("option");
             option.value = m.nome;
-            option.dataset.codigoIbge = m.id; // Salva o ID do IBGE para cruzar com o CSV
+            option.dataset.codigoIbge = m.id;
             option.textContent = m.nome;
             selectMunicipio.appendChild(option);
         });
         selectMunicipio.disabled = false;
     } else {
-        selectMunicipio.innerHTML = '<option value="">Erro ao carregar municípios</option>';
+        selectMunicipio.innerHTML = '<option value="">Erro ao carregar municípios. Tente novamente.</option>';
     }
 });
 
@@ -413,29 +460,32 @@ selectUF.addEventListener("change", async function () {
 selectMunicipio.addEventListener("change", function() {
     selectEscola.innerHTML = '<option value="">Selecione uma escola</option>';
     campoInep.value = "";
+    campoInep.readOnly = true;
 
     const optionSelecionada = selectMunicipio.options[selectMunicipio.selectedIndex];
-    const codigoIbge = optionSelecionada?.dataset?.codigoIbge || ""; // Código de 7 dígitos do IBGE
-    const codigoIbge6 = codigoIbge.substring(0, 6); // Código de 6 dígitos (usado em algumas planilhas)
-
+    const codigoIbge = optionSelecionada?.dataset?.codigoIbge || ""; 
+    
+    const inputCodMun = document.getElementById("codigo_municipio");
+    if (inputCodMun) inputCodMun.value = codigoIbge;    
+    
+    const codigoIbge6 = codigoIbge.substring(0, 6);
     const municipioSelecionado = selectMunicipio.value
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g,"")
       .trim()
       .toUpperCase();
 
-    // Filtra cruzando NOME DO MUNICÍPIO ou CÓDIGO IBGE
     const escolasFiltradas = EscolasMuniCSV.filter(item => {
-        const temEscola = !!item["Escola"];
+        const nomeEscola = item["escola_onde_atua"] || item["Escola"] || "";
+        const temEscola = !!nomeEscola.trim();
         
-        // Verifica o nome do município no CSV (cobre casos de espaços extras ou minúsculas)
-        const municipioCSV = (item["Município"] || item["Municipio"] || "")
+        const municipioCSV = (item["Município"] || item["Municipio"] || item["municipio"] || "")
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g,"")
           .trim()
           .toUpperCase();
 
-        const codMunCSV = String(item["Código Municipio"] || item["Codigo Municipio"] || "").trim();
+        const codMunCSV = String(item["codigo_municipio"] || item["Código Municipio"] || "").trim();
 
         const bateuMunicipio = (municipioCSV === municipioSelecionado) || 
                                (codMunCSV === codigoIbge) || 
@@ -445,23 +495,40 @@ selectMunicipio.addEventListener("change", function() {
     });
 
     if (escolasFiltradas.length === 0) {
-        selectEscola.innerHTML = '<option value="">Nenhuma escola encontrada</option>';
+        selectEscola.innerHTML = '<option value="">Nenhuma escola encontrada para este município</option>';
         liberarDigitacaoManual();
         return;
     }
 
-    // Ordena as escolas em ordem alfabética
-    escolasFiltradas.sort((a, b) => (a["Escola"] || "").localeCompare(b["Escola"] || "", "pt-BR"));
-
-    // Adiciona as opções
-    escolasFiltradas.forEach(item => {
-        const option = document.createElement("option");
-        option.textContent = item["Escola"];
-        option.value = item["Código INEP"] || item["Codigo INEP"] || "";
-        selectEscola.appendChild(option);
+    escolasFiltradas.sort((a, b) => {
+        const nomeA = a["escola_onde_atua"] || a["Escola"] || "";
+        const nomeB = b["escola_onde_atua"] || b["Escola"] || "";
+        return nomeA.localeCompare(nomeB, "pt-BR");
     });
 
-    // Opção para Outras Escolas
+    escolasFiltradas.forEach(item => {
+
+    const option = document.createElement("option");
+
+    const nomeEscola =
+        item["escola_onde_atua"] ||
+        item["Escola"] ||
+        "";
+
+    const codigoInep =
+        item["codigo_inep"] ||
+        item["Código INEP"] ||
+        item["Codigo INEP"] ||
+        "";
+
+    option.textContent = nomeEscola;
+    option.value = nomeEscola;
+    option.dataset.inep = codigoInep;
+
+    selectEscola.appendChild(option);
+
+});
+
     const optionOutra = document.createElement("option");
     optionOutra.value = "OUTRA";
     optionOutra.textContent = "-- MINHA ESCOLA NÃO ESTÁ NA LISTA --";
@@ -470,14 +537,22 @@ selectMunicipio.addEventListener("change", function() {
     selectEscola.disabled = false;
 });
 
-// 3. SELEÇÃO DA ESCOLA -> Preenche o INEP
+// 3. SELEÇÃO DA ESCOLA -> Preenche o INEP automaticamente
 selectEscola.addEventListener("change", function() {
+
     if (this.value === "OUTRA") {
         liberarDigitacaoManual();
-    } else {
-        campoInep.value = this.value;
-        campoInep.readOnly = true;
+        return;
     }
+
+    const opcaoSelecionada =
+        this.options[this.selectedIndex];
+
+    campoInep.value =
+        opcaoSelecionada.dataset.inep || "";
+
+    campoInep.readOnly = true;
+
 });
 
 function liberarDigitacaoManual() {
@@ -486,41 +561,49 @@ function liberarDigitacaoManual() {
     campoInep.placeholder = "Digite o código INEP manualmente";
     campoInep.focus();
 }
-// Captura o envio do formulário
-// Captura o envio do formulário
-const form = document.getElementById("formCursistas");
 
+// 4. ENVIO DO FORMULÁRIO
 form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede a página de recarregar
-    
-    // 1. URL corrigida (tudo na mesma linha, sem quebras)
-    const urlGoogleScript = "https://script.google.com/macros/s/AKfycbwbb2kTJ0mOUE5olyxRKbkL_8Lvt65vECf1atvckYP3qjSOnojetwGm_iKmleVnTYwB/exec";
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    const urlGoogleScript = "https://script.google.com/macros/s/AKfycbxaeWd1Unxb6IC7tojvwUVqOL_L8hTxDO0mBtcZlYCAblvOsctaN3Vnh-quJOE10ROp/exec";
     
     const btnSubmit = document.querySelector(".btn-submit");
-    const textoOriginal = btnSubmit.textContent;
-    btnSubmit.textContent = "Enviando...";
-    btnSubmit.disabled = true;
+    const textoOriginal = btnSubmit ? btnSubmit.textContent : "Enviar";
+    if (btnSubmit) {
+        btnSubmit.textContent = "Enviando...";
+        btnSubmit.disabled = true;
+    }
 
     const formData = new FormData(form);
 
-    // 2. Usando mode: "no-cors" para não ser bloqueado pelo navegador
     fetch(urlGoogleScript, {
         method: "POST",
         body: formData,
-        mode: "no-cors" 
+        mode: "no-cors"
     })
     .then(() => {
         alert("Cadastro realizado com sucesso!");
-        form.reset(); // Limpa o formulário
+        form.reset();
+        selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+        selectMunicipio.disabled = true;
+        selectEscola.innerHTML = '<option value="">Selecione primeiro o município</option>';
+        selectEscola.disabled = true;
     })
     .catch(error => {
         console.error("Erro:", error);
         alert("Erro na conexão ao enviar os dados.");
     })
     .finally(() => {
-        // Restaura o botão
-        btnSubmit.textContent = textoOriginal;
-        btnSubmit.disabled = false;
+        if (btnSubmit) {
+            btnSubmit.textContent = textoOriginal;
+            btnSubmit.disabled = false;
+        }
     });
 });
 </script>
